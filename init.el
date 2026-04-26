@@ -5,15 +5,21 @@
  (theme doom-one)
 
  :completion
- (corfu auto-for-prog)
+ (corfu auto-for-prog auto-for-text auto-idle)
 
  :email
  mu4e
+ :ai
+ anvil
+
+ :term
+ (eshell eat)
 
  :tools
  magit
  direnv
  (eldoc box)
+ (dired icons)
 
  :checkers
  spellchecking
@@ -21,26 +27,22 @@
  :editing
  (c lsp)
  (cmake lsp)
+ make
  (cpp lsp)
- (css lsp)
  (go lsp)
- (html lsp)
  (haskell lsp)
- (json lsp)
- (less lsp)
- (lua lsp)
  (nix lsp)
  (python lsp)
  (terraform lsp doc)
+ (json lsp)
  (yaml lsp)
  (toml lsp)
  emacs-lisp
  hyprland
  kdl
  latex
- make
  markdown
- org
+ (org roam noter)
 
  :config
  (default no-splash hide-tool-bar hide-menu-bar))
@@ -79,6 +81,8 @@
 		   :key ?t
 		   :query ,(mu4e-make-query `(and (date (today .. now)) (not ,email-query-mailing-lists)))))))
 
+;;(setq org-roam-directory (file-truename "~/Documentos/org"))
+
 (with-eval-after-load "mu4e"
   (setq mu4e-get-mail-command "mbsync --all") ;; descarga y sube correos
   (setq mu4e-update-interval nil) ;; quiero manejar el correo de manera manual
@@ -106,3 +110,10 @@
 	    :maildir "hey"
 	    :mail "hey@jorgearaya.dev"
 	    :sig "Jorge Araya\nFreelance Software Engineer — https://jorgearaya.dev"))))
+
+(leaf dm-log
+  :ensure (dm-log :host github :repo "shackra/dm-log")
+  :after org
+  :commands dm-log
+  :custom
+  (dm-log-campaigns-directory . "~/Documentos/OSR/Magía y Acero/campañas"))
