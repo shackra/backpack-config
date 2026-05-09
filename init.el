@@ -256,3 +256,6 @@ Purchases and sent transfers add, received transfers subtract."
             (goto-char (point-min))
             (org-table-align))
           (pop-to-buffer buf))))))
+
+;; ERC — connect to ZNC bouncer
+(load-file (expand-file-name "irc.el" backpack-user-dir))
