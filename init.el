@@ -9,6 +9,7 @@
 
  :email
  mu4e
+
  :ai
  anvil
 
@@ -25,27 +26,51 @@
  spellchecking
 
  :editing
+ ;; C
  (c lsp)
- (cmake lsp)
  make
+
+ ;; C++
  (cpp lsp)
+ (cmake lsp)
+
+ ;; modos mayores para trabajo `backend`
  (go lsp)
- (haskell lsp)
- (nix lsp)
+ (rust lsp)
  (python lsp)
+ (haskell lsp)
+
+ ;; modos mayores para trabajo `frontend`
+ (javascript lsp)
+ (typescript lsp)
+ (html lsp web)
+ (svelte lsp)
+ (css lsp)
+
+ ;; lenguajes de programación para configurar cosas
+ (nix lsp)
  (terraform lsp doc)
+ emacs-lisp
+
+ ;; modos mayores para archivos de datos
  (json lsp)
  (yaml lsp)
  (toml lsp)
- emacs-lisp
- hyprland
  kdl
+
+ ;; modos mayores para cosas muy "niche"
+ hyprland
+
+ ;; modos mayores para escribir prosa
  latex
  markdown
+
+ ;; org-mode y amigos
  (org roam noter)
 
  :config
  (default no-splash hide-tool-bar hide-menu-bar))
+;; fin de macro gear!
 
 (set-face-attribute 'default nil :family "Iosevka Nerd Font Mono" :height 160)
 
@@ -58,28 +83,28 @@
 (set-fontset-font t 'symbol (font-spec :family "JuliaMono"))
 
 (with-eval-after-load "mu4e-query"
-    (setq email-query-one-of '(one-of "emacs-devel@gnu.org"
-				      "help-gnu-emacs@gnu.org"
-				      "mu-discuss@googlegroups.com"
-				      "golang-nuts@googlegroups.com"
-				      "python-list@python.org"))
-    (setq email-query-mailing-lists  `(contact ,email-query-one-of))
-    (setq email-query-maildir-trash  '(or (flag trashed) (maildir ("/.*\\/Trash/"))))
+  (setq email-query-one-of '(one-of "emacs-devel@gnu.org"
+				    "help-gnu-emacs@gnu.org"
+				    "mu-discuss@googlegroups.com"
+				    "golang-nuts@googlegroups.com"
+				    "python-list@python.org"))
+  (setq email-query-mailing-lists  `(contact ,email-query-one-of))
+  (setq email-query-maildir-trash  '(or (flag trashed) (maildir ("/.*\\/Trash/"))))
 
-    ;; (man "mu-query") -- para saber más sobre las consultas con mu
-    (setq mu4e-bookmarks
-	  `((:name "Sin leer"
-		   :key ?u
-		   :query ,(mu4e-make-query `(and (flag unread) (not ,email-query-maildir-trash) (not ,email-query-mailing-lists))))
-	    (:name "Listas de correo"
-		   :key ?l
-		   :query ,(mu4e-make-query `(and (flag unread) (not ,email-query-maildir-trash) ,email-query-mailing-lists)))
-	    (:name "Marcado"
-		   :key ?f
-		   :query ,(mu4e-make-query '(flag flagged)))
-	    (:name "Correos de hoy"
-		   :key ?t
-		   :query ,(mu4e-make-query `(and (date (today .. now)) (not ,email-query-mailing-lists)))))))
+  ;; (man "mu-query") -- para saber más sobre las consultas con mu
+  (setq mu4e-bookmarks
+	`((:name "Sin leer"
+		 :key ?u
+		 :query ,(mu4e-make-query `(and (flag unread) (not ,email-query-maildir-trash) (not ,email-query-mailing-lists))))
+	  (:name "Listas de correo"
+		 :key ?l
+		 :query ,(mu4e-make-query `(and (flag unread) (not ,email-query-maildir-trash) ,email-query-mailing-lists)))
+	  (:name "Marcado"
+		 :key ?f
+		 :query ,(mu4e-make-query '(flag flagged)))
+	  (:name "Correos de hoy"
+		 :key ?t
+		 :query ,(mu4e-make-query `(and (date (today .. now)) (not ,email-query-mailing-lists)))))))
 
 ;;(setq org-roam-directory (file-truename "~/Documentos/org"))
 
