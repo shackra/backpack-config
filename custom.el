@@ -5,7 +5,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
-   '((:yaml
+   '((jinx-languages . "en")
+     (:yaml
       (:format (:enable t) :validate t :hover t :completion t :schemas
 	       (:https://www.schemastore.org/github-workflow.json
 		["/.github/workflows/*.yml"])
