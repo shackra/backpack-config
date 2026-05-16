@@ -61,3 +61,6 @@ If point is on a URL, use it; otherwise prompt for one."
    (lambda (resolved)
      (message "Adding %s to Instapaper..." resolved)
      (my/instapaper--add resolved))))
+
+(with-eval-after-load 'mu4e-view
+  (keymap-set mu4e-view-mode-map "C-," #'my/instapaper-add))
