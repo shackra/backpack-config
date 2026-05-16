@@ -292,3 +292,6 @@ Purchases and sent transfers add, received transfers subtract."
 
 ;; ERC — connect to ZNC bouncer
 (load-file (expand-file-name "irc.el" backpack-user-dir))
+
+;; Instapaper — guardar URLs
+(load-file (expand-file-name "instapaper.el" backpack-user-dir))
