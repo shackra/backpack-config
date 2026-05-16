@@ -3,9 +3,16 @@
 (gear!
  :ui
  (theme doom-one)
+ diff-hl
 
  :completion
  (corfu auto-for-prog auto-for-text auto-idle)
+ (vertico quick repeat suspend)
+ (consult eglot dir project-extra todo)
+ orderless
+ marginalia
+ embark
+ cape
 
  :email
  mu4e
@@ -21,6 +28,7 @@
  direnv
  (eldoc box)
  (dired icons)
+ activities
 
  :checkers
  spellchecking
