@@ -69,9 +69,4 @@
         (message "[IRC] %s mentioned you in %s" sender target)))
     nil)
 
-  (add-hook 'erc-server-PRIVMSG-functions #'my/erc-notify-on-mention)
-
-)
-
-;; Auto-connect to all ZNC networks when running as daemon
-(add-hook 'backpack-user-after-init-hook #'my/erc-znc-all)
+  (add-hook 'erc-server-PRIVMSG-functions #'my/erc-notify-on-mention))
