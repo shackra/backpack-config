@@ -19,4 +19,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(doom-modeline-bar ((t (:background "#302A29" :inherit mode-line))) nil "Customized with leaf in `doom-modeline' block"))
