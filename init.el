@@ -24,7 +24,7 @@
  (eshell eat)
 
  :tools
- magit
+ (magit difftastic)
  direnv
  (eldoc box)
  (dired icons)
