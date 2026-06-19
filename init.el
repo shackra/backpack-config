@@ -29,7 +29,6 @@
  direnv
  (eldoc box)
  (dired icons)
- activities
 
  :checkers
  spellchecking
@@ -100,6 +99,11 @@
   :commands dm-log
   :custom
   (dm-log-campaigns-directory . "~/Documentos/OSR/Magía y Acero/campañas"))
+
+;; Ajustes para anvil.el
+(setq anvil-mu4e-from "jorge@esavara.cr")
+(setq anvil-mu4e-allow-send t)
+(setq anvil-mu4e-send-allowlist '(".*"))
 
 ;; email — extensions for mu4e
 (load-file (expand-file-name "email.el" backpack-user-dir))
